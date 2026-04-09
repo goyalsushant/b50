@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/submit" method="post">
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="Enter Name" name="name" autocomplete="given-name">
+        <label for="number">Number</label>
+        <input type="number" placeholder="Enter Number" name="number" id="number">
+        <label for="pwd">Password</label>
+        <input type="password" placeholder="Enter Password" name="password" id="pwd">
+        <label for="email">Email</label>
+        <input type="email" placeholder="Enter email" name="email" id="email">
+        <label>Gender</label>
+        <input type="radio" name="gender" value="M">Male
+        <input type="radio" name="gender" value="F">Female
+
+        <label for="dropdown">Dropdown</label>
+        <select id="dropdown" name="dropdown">
+            <option value="Banana">Banana</option>
+            <option value="Mango">Mango</option>
+            <option value="Apple">Apple</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
