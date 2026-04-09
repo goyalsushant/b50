@@ -1,0 +1,18 @@
+
+
+.different {
+    color: green;
+}
+
+#h1-id {
+    background-color: bisque;
+}
+
+h1 {
+    color: orange !important
+}
+
+#h1-id {
+    background-color: aquamarine;
+    color: coral;
+}

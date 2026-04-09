@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .inline-btn {
+            display: inline;
+            background: lightblue;
+            height: 60px;
+            width: 100px;
+        }
+
+        .inline-block-btn {
+            display: inline-block;
+            background: lightcyan;
+            height: 60px;
+            width: 100px;
+        }
+
+        a::before {
+            content: 'Before Anchor  ';
+            color: blue;            
+        }
+
+         a::after {
+            content: '    After Anchor  ';
+            color: green;            
+        }
+
+        a:link {
+            color: green;
+        }
+        a:visited {
+            color: orange;
+        }
+
+        button:hover {
+            background-color: #006494;
+        }
+
+        button:active {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- <span class="inline-btn">Span as inline</span>
+    <span class="inline-block-btn">Span as inline block</span> -->
+    <!-- <button class="inline-btn">Inline Button</button> -->
+    <!-- <button class="inline-block-btn">Inline Block Button</button> -->
+
+    <a href="https://www.google.com">Google</a>
+</body>
+</html>
