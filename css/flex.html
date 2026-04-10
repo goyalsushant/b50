@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            /* flex-direction: column-reverse; */
+            /* justify-content: space-around; */
+            /* align-items: stretch; */
+            height: 200px;
+            /* flex-wrap: wrap; */
+        }
+
+        .box {
+            width: 50%;
+            /* height: 100px; */
+            background-color: aquamarine;
+            margin: 10px;
+        }
+
+        .one {
+            /* flex-grow: 1; */
+            /* flex-shrink: 1; */
+            flex-basis: 200px;
+        }
+
+        .two {
+            /* flex-grow: 2; */
+        }
+
+        .five {
+            /* flex-grow: 1; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box one">Div One</div>
+        <div class="box two">Div Two</div>
+        <div class="box three">Div Three</div>
+        <!-- <div class="box four">Div Four</div>
+        <div class="box five">Div Five</div> -->
+    </div>
+</body>
+</html>

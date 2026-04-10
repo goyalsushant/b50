@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div-1 {
+            background-color: coral;
+            height: 100px;
+            width: 100px;
+            box-sizing: border-box;
+        }
+
+        .div-2 {
+            background-color: blue;
+            height: 100px;
+            width: 100px;
+            position: relative;
+        }
+
+        .div-3 {
+            background-color: green;
+            height: 100px;
+            width: 100px;
+            position: relative;
+        }
+
+        .child-div-3 {
+            background-color: red;
+            height: 50px;
+            width: 50px;
+            position: absolute;
+        }
+        .div-4 {
+            background-color: lightblue;
+            width: 100px;
+            height: 100px;
+            position: fixed;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: lawngreen;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sticky">This div is sticky</div>
+    <div class="div-1"></div>
+    <div class="div-2"></div>
+    <div class="div-3">
+        <div class="child-div-3"></div>
+    </div>
+    
+    <div class="div-1"></div>
+    <div class="div-2"></div>
+    <div class="div-4"></div>
+    
+    <div class="div-1"></div>
+    <div class="div-2"></div>
+</body>
+
+</html>
