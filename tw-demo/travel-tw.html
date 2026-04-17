@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="travel.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+
+<body>
+    <header class="bg-green-500 text-white sticky top-0 z-1000">
+        <div class="container flex mx-auto p-4 items-center justify-between">
+            <div class="text-2xl font-bold">
+                <h2>Go Travel</h2>
+            </div>
+            <nav class="flex w-full md:items-center md:w-auto">
+                <ul class="flex md:space-x-4">
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Destination</li>
+                    <li>Testimonial</li>
+                    <li>Contact Us</li>
+                </ul>
+
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+            <div class="hidden md:flex space-x-3">
+                <a href="" class="border border-white px-4 py-2 rounded">Login</a>
+                <a href="" class="bg-white text-green-700 px-4 py-2 rounded">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="h-[80vh] bg-cover bg-center relative"
+        style="background-image: url('https://gotravel123.netlify.app/assets/2.jpg');">
+        <div class="absolute bg-black/60  flex items-center justify-center text-center text-white px-4 inset-0">
+            <div>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Experience The Travel Luxury</h1>
+                <p class="mb-6">Some representative placeholder content for the third slide.</p>
+                <a href="" class="bg-white text-green-700 font-semibold px-6 py-3 rounded hover:bg-green-100">Explore
+                    Now</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- About Section -->
+        <section class="py-16 bg-gray-100">
+            <div class="container mx-auto flex flex-col md:flex-row items-center px-4 gap-8">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-4 text-green-700">About Us</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quo accusantium eveniet!
+                        Eligendi,
+                        officia! Minima soluta maxime minus explicabo accusamus amet quaerat optio, saepe hic dolor vel
+                        iure
+                        velit enim?</p>
+                </div>
+                <div class="md:w-1/2 h-[50vh]">
+                    <img src="https://gotravel123.netlify.app/assets/abt-us.jpg" alt=""
+                        class="w-full h-full object-cover rounded">
+                </div>
+            </div>
+        </section>
+
+        <!-- Package Section -->
+        <section class="py-16">
+            <div class="container">
+                <h2 class="font-bold text-3xl text-center mb-10 text-green-700">Travel Packages</h2>
+
+                <div class="grid mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4">
+                    <div class="bg-white rounded shadow overflow-hidden">
+                        <!-- <div class="package-image"> -->
+                        <img src="https://gotravel123.netlify.app/assets/des-1.jpg" alt="Package 1"
+                            class="w-full h-60 object-cover">
+                        <!-- </div> -->
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold mb-2">3 Days 4 Nights</h3>
+                            <p class="font-bold text-green-700">Rs: 19,999</p>
+                            <button class="bg-green-600 px-4 py-2 rounded text-white">Book Now</button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded shadow overflow-hidden">
+                        <img src="https://gotravel123.netlify.app/assets/des-2.jpg" alt="Package 2"
+                            class="w-full h-60 object-cover">
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold mb-2">3 Days 4 Nights</h3>
+                            <p class="font-bold text-green-700">Rs: 19,999</p>
+                            <button class="bg-green-600 px-4 py-2 rounded text-white">Book Now</button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded shadow overflow-hidden">
+                        <img src="https://gotravel123.netlify.app/assets/des-3.jpg" alt="Package 3"
+                            class="w-full h-60 object-cover">
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold mb-2">3 Days 4 Nights</h3>
+                            <p class="font-bold text-green-700">Rs: 19,999</p>
+                            <button class="bg-green-600 px-4 py-2 rounded text-white">Book Now</button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded shadow overflow-hidden">
+                        <img src="https://gotravel123.netlify.app/assets/des-4.jpg" alt="Package 4"
+                            class="w-full h-60 object-cover">
+                        <div class="p-4 text-center">
+                            <h3 class="font-bold mb-2">3 Days 4 Nights</h3>
+                            <p class="font-bold text-green-700">Rs: 19,999</p>
+                            <button class="bg-green-600 px-4 py-2 rounded text-white">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ad sit illo itaque, maiores
+                            dolores voluptates exercitationem! Molestias illo officiis omnis. Ipsa sed doloribus
+                            laboriosam explicabo odit, optio similique dolorem.</p>
+                        <div class="client-info">
+                            <h4>Elizabeth</h4>
+                            <span>Client</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ad sit illo itaque, maiores
+                            dolores voluptates exercitationem! Molestias illo officiis omnis. Ipsa sed doloribus
+                            laboriosam explicabo odit, optio similique dolorem.</p>
+                        <div class="client-info">
+                            <h4>Naveen Patnaik</h4>
+                            <span>Client</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus ad sit illo itaque, maiores
+                            dolores voluptates exercitationem! Molestias illo officiis omnis. Ipsa sed doloribus
+                            laboriosam explicabo odit, optio similique dolorem.</p>
+                        <div class="client-info">
+                            <h4>Ahmed Shezath</h4>
+                            <span>Client</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="h-[60vh] bg-fill bg-center flex items-center"
+            style="background-image: url('https://gotravel123.netlify.app/assets/newssection-bg.jpg');">
+            <div class="container">
+                <h2 class="text-3xl text-green-700 font-bold">Contact Us</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3 class="text-xl text-green-700 font-semibold">Get In Touch</h3>
+                        <p>Ready to start your next adventure? Contact us today!</p>
+                    </div>
+                    <form action="" class="contact-form">
+                        <div class="mb-4">
+                            <input class="w-full border border-gray-300 p-2 rounded" type="email" placeholder="Enter Your Email" required>
+                            <input class="w-full border border-gray-300 p-2 rounded" type="textarea" placeholder="Enter Your Message" required>
+                            <button type="submit" class="bg-green-600 text-hite px-4 py-2 rounded">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>GoTravel</h3>
+                    <p>Your trusted travel partner for amazing adventure</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a>Home</a></li>
+                        <li><a>About Us</a></li>
+                        <li><a>Destination</a></li>
+                        <li><a>Testimonial</a></li>
+                        <li><a>Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
