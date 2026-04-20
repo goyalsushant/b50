@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .orange {
+            background-color: orange;
+        }
+
+        .green{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn" class="green">CLick ME!</button>
+    <p>This is a Paragraph</p>
+</body>
+<script>
+    const button = document.getElementById('btn')
+    const para = document.getElementsByTagName('p')[0]
+
+    // function eventHandlerOne () {
+    //     console.log('first event')
+    //     alert('First event triggered')
+    // }
+    // button.addEventListener('click', eventHandlerTwo)
+
+    // button.addEventListener('dblclick', () => {
+    //     button.style.backgroundColor = 'orange'
+    // })
+
+    // button.addEventListener('mouseenter', () => {
+    //     // button.style.cursor = 'pointer'
+    //     // button.classList.add('orange')
+    //     // button.classList.remove('green')
+    //     button.classList.toggle('orange')
+    // })
+
+    // button.addEventListener('mouseleave', () => {
+    //     // button.style.backgroundColor = 'green'
+    //     // button.classList.add('green')
+    //     // button.classList.remove('orange')
+    //     button.classList.toggle('green')
+    // })
+
+    document.addEventListener('mousemove', (e) => {
+        console.log(`X: ${e.clientX}, Y: ${e.clientY}`)
+    })
+</script>
+
+</html>

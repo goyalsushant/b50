@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list">
+        <li>Milk</li>
+        <li>Flour</li>
+    </ul>
+
+    <!-- <form action="">
+        <input type="text" placeholder="Enter Text">
+        <button type="submit">Submit</button>
+    </form> -->
+</body>
+<script>
+    const ul = document.getElementById('list')
+    // document.addEventListener('keypress', (e) => {
+    //     console.log(e.type)
+    // })
+    // const form = document.querySelector('form')
+    // form.addEventListener('submit', (e) => {
+    //     e.preventDefault()
+    //     console.log(e)
+    // })
+
+    // ul.addEventListener('click', (e) => {
+    //     console.log(e.target)
+    // })
+
+    document.addEventListener('click', (e) => {
+        // console.log(e.target.tagName)
+        if(e.target.tagName == 'LI') {
+            e.target.classList.add('purchased')
+        }
+    })
+
+</script>
+</html>

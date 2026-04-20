@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">CLick ME!</button>
+</body>
+<script>
+    // document.getElementById('btn').onclick = function () {
+    //     console.log('first event')
+    //     alert('Clicked')
+    // }
+
+    // document.getElementById('btn').onclick = function () {
+    //     console.log('second event')
+    //     alert('Event handler updated')
+    // }
+
+    const button = document.getElementById('btn')
+
+    function eventHandlerOne () {
+        console.log('first event')
+        alert('First event triggered')
+    }
+
+    function eventHandlerTwo () {
+        console.log('second event')
+        alert('Second event triggered')
+    }
+
+    button.addEventListener('click', eventHandlerOne)
+    button.addEventListener('click', eventHandlerTwo)
+
+
+
+    // button.removeEventListener('click', eventHandlerTwo)
+</script>
+
+</html>

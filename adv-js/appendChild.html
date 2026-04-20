@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1 class="title">Heading</h1>
+        <p class="text">Paragraph 1</p>
+        <p class="text">Paragraph 2</p>
+        <input type="text">
+        <button class="btn">Click</button>
+    </div>
+
+    <h1>Order List:</h1>
+    <ul>
+        <li>Milk</li>
+        <li>Bread</li>
+        <li>Flour</li>
+    </ul>
+</body>
+<script>
+    // const ul = document.getElementsByTagName('ul')
+    // const elem = document.createElement('li')
+    // elem.textContent = 'Curd'
+    // ul[0].appendChild(elem)
+    const div = document.getElementById('container')
+    const elem = document.createElement('p')
+    elem.innerHTML = '<strong>This element is created using document object.</strong>'
+    div.appendChild('This is a text node')
+</script>
+</html>

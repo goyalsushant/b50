@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="header" class="element">
+        <!-- <p>User login success/ failure depends on the color of this text.</p> -->
+        <p>Hello! username</p>
+    </div>
+
+    <p id="header" class="element">Paragraph 2</p>
+    <p class="element">
+        <span style="display: none;">This is a span tag</span>
+    </p>
+</body>
+<script>
+    // let div = document.getElementById('header')
+
+    // let userLogin = false
+    // if (userLogin) {
+    //     // div.style.color = 'blue'
+    //     div.textContent = 'Hello! Rajat'
+    // }
+    // else {
+    //     // div.style.color = 'red'
+    //     // div.textContent = 'User Not Found'
+    // }
+
+    // let classElements = document.getElementsByClassName('element')
+
+    // console.log(classElements[0])
+    // for(let i=0; i<classElements.length; i++) {
+    //     console.log(classElements[i])
+    // }
+
+    // for(const elem of classElements) {
+    //     console.log(elem)
+    // }
+
+    const paragraphs = document.getElementsByTagName('p')
+    // for(let elem of paragraphs) {
+    //     // elem.style.fontWeight = 'bold'
+    //     console.log(elem)
+    // }
+
+    // paragraphs[1].innerHTML = '<span style="font-size: 24px;">Hello World</span>'
+    // paragraphs[1].innerText = '<span style="font-size: 24px;">Hello World</span>'
+
+
+    // paragraphs[1].innerHTML = '<span style="display: none;">Hello World</span>'
+    // paragraphs[1].style.display = 'none'
+    // paragraphs[1].innerText = '<span style="display:none;">Hello World</span>'
+
+    // console.log(paragraphs[2].textContent)
+    paragraphs[1].style.cssText = "font-size:20px; background-color: coral; color: black"
+    // console.log(paragraphs[1].style)
+    paragraphs[1].style.cssText = paragraphs[1].style.cssText + "font-weight: bold;"
+</script>
+
+</html>
