@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function createPromise() {
+            const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    reject('Promise Resolved')
+                }, 1000)
+            })
+
+            console.log(promise)
+        }
+        createPromise()
+        // createPromise().then((data) => {
+        //     console.log(data)
+        // }).catch((err) => {
+        //     console.error(err)
+        // })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

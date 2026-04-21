@@ -25,11 +25,17 @@
     const button = document.getElementById('btn')
     const para = document.getElementsByTagName('p')[0]
 
-    // function eventHandlerOne () {
-    //     console.log('first event')
-    //     alert('First event triggered')
-    // }
-    // button.addEventListener('click', eventHandlerTwo)
+    function eventHandlerOne () {
+        console.log('first event')
+        alert('First event triggered')
+    }
+
+    function eventHandlerTwo () {
+        console.log('Second event')
+        alert('Second event triggered')
+    }
+    button.addEventListener('click', eventHandlerOne)
+    button.addEventListener('click', eventHandlerTwo)
 
     // button.addEventListener('dblclick', () => {
     //     button.style.backgroundColor = 'orange'
@@ -49,9 +55,9 @@
     //     button.classList.toggle('green')
     // })
 
-    document.addEventListener('mousemove', (e) => {
-        console.log(`X: ${e.clientX}, Y: ${e.clientY}`)
-    })
+    // document.addEventListener('mousemove', (e) => {
+    //     console.log(`X: ${e.clientX}, Y: ${e.clientY}`)
+    // })
 </script>
 
 </html>
