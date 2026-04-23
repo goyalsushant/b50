@@ -7,21 +7,41 @@
     <title>Document</title>
 
     <script>
-        function createPromise() {
-            const promise = new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    reject('Promise Resolved')
-                }, 1000)
-            })
+        // function createPromise() {
+        //     const promise = new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             reject('Promise Rejected')
+        //         }, 1000)
+        //     })
 
-            console.log(promise)
-        }
-        createPromise()
+        //     // console.log(promise)
+        //     return promise
+        // }
+        // // createPromise()
         // createPromise().then((data) => {
         //     console.log(data)
         // }).catch((err) => {
         //     console.error(err)
         // })
+
+        console.log('Start')
+        Promise.resolve().then(() =>{
+            console.log('Promise 1')
+        })
+
+        //  Demo purpose - handling error in .then is not correct as it will give undefined as output
+        // Promise.reject().then(() =>{
+        //     console.log('Promise 2')
+        // })
+
+        // Actual implementation
+        Promise.reject('You rejected it by calling reject callback.').then(() =>{
+            console.log('Promise 2')
+        })
+        .catch(error => console.log(error))
+
+        console.log('End')
+
     </script>
 </head>
 
