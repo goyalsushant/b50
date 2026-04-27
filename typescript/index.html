@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://unpkg.com/typescript@latest/lib/typescript.js"></script>
+    <script>
+        const tsCode = `
+            let username: string = 'Alex';
+            console.log(username)
+            function tsFunction(a: string, b: number) {
+    console.log(a, b)
+    // return
+}
+
+tsFunction(10, 20)
+            `;
+        const jsCode = ts.transpile(tsCode);
+        console.log(jsCode);
+        eval(jsCode)
+    </script> -->
+    <script src="dist/example.js"></script>
+    <script>
+        async function inner() {
+            console.log('Inner start')
+            await Promise.resolve()
+            console.log('Inner End')
+        }
+
+        async function outer() {
+            console.log('Outer Start')
+            inner()
+            console.log('Outer End')
+        }
+
+        outer()
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
