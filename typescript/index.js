@@ -7,17 +7,19 @@ a = {
     key: 'value'
 }
 
-console.log(typeof a )
+console.log(typeof a)
 
-if(typeof a == 'number') {
+if (typeof a == 'number') {
     console.log('Number found')
 }
-else if(typeof a == 'object') {
+else if (typeof a == 'object') {
     console.log('Object found')
 }
 
 function firstFunction(a, b) {
-    console.log(a,b)
+    console.log(a, b)
 }
 
 firstFunction(10, 20)
+
+// let arr = [1, 2, 3, 4]

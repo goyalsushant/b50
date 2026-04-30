@@ -1,5 +1,5 @@
-// // let username: string = 'Alex'
-// // let age: number = 25
+// let username: string = 'Alex'
+// let age: number = 25
 // // let isWorking: boolean = true
 
 // // function tsFunction(a: string, b: number) {
