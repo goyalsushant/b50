@@ -1,7 +1,7 @@
 type UserDetails = {
     age: number
     name: string
-    mobile: number
+    phone: number
 }
 
 let user1: UserDetails = {
