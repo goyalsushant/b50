@@ -1,10 +1,16 @@
+import { useState } from "react"
+
 function PropsExample() {
 
-    let count = 0
+    // let count = 0
+    let [count, setCount] = useState(0)
 
     function increaseCount(trigger) {
-        count++
-        console.log(trigger, count)
+        // console.log(trigger,'current value of count is: ', count)
+        // count = 2 //This operation is invalid as state can not be directly modified
+        // count++  
+        setCount(count + 1)
+        // console.log(trigger,'updated value of count is: ', count)
     }
 
     function handleMessage(message) {
@@ -13,9 +19,9 @@ function PropsExample() {
 
     return (
         <>
-            <FirstChildComponent sendMessage={handleMessage} increaseCount={increaseCount} count={count}/>
-            <SecondChildComponent sendMessage={handleMessage} increaseCount={increaseCount} count={count}/>
-            Count: {count}
+            <FirstChildComponent sendMessage={handleMessage} increaseCount={increaseCount} />
+            <SecondChildComponent sendMessage={handleMessage} increaseCount={increaseCount} />
+            Parent Count: {count}
         </>
     )
 }
@@ -25,6 +31,7 @@ function FirstChildComponent(props) {
         <>
             {/* <p>{props.value}</p> */}
             <h2>First Child</h2>
+            First Child Count: {props.count}
 
             {/* <p>Count: {props.count}</p> */}
             <button onClick={() => props.increaseCount('First')}>Send Message</button>
@@ -37,6 +44,8 @@ function SecondChildComponent(props) {
         <>
             {/* <p>{props.value}</p> */}
             <h2>Second Child</h2>
+            Second Child Count: {props.count}
+
             {/* <p>Count: {props.count}</p> */}
             <button onClick={() => props.increaseCount('Second')}>Send Message</button>
         </>

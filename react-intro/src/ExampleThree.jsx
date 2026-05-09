@@ -21,6 +21,7 @@ function Sidebar(props) {
 }
 
 function ToggleTheme(props) {
+    // props.theme = 'light'
     return (
         <>
             Current Theme: {props.theme}

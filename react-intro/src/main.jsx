@@ -12,11 +12,11 @@ const theme = 'dark'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
+    <App />
     {/* <Introduction /> */}
     {/* <PropsExample /> */}
     {/* <ExampleOne /> */}
     {/* <ExampleTwo data={'Some Data from Main Component'}/> */}
-    <ExampleThree mode={theme}/>
+    {/* <ExampleThree mode={theme}/> */}
   </StrictMode>,
 )
