@@ -11,6 +11,9 @@ import PropsExample from './Props'
 import Input from './Input'
 import TodoApp from './Todo'
 import KeyExample from './KeyExample'
+import SubmitForm from './SubmitForm'
+import SingleFormHandler from './GenericFormHandler'
+import SearchBar from './Practice'
 
 // function Greeting(props) {
 //   props.name = 'Hello'
@@ -26,7 +29,10 @@ import KeyExample from './KeyExample'
 function App() {
   return (
     <>
-      <KeyExample />
+      <SearchBar />
+      {/* <SingleFormHandler /> */}
+      {/* <SubmitForm /> */}
+      {/* <KeyExample /> */}
       {/* <TodoApp /> */}
       {/* <PropsExample /> */}
       {/* <Counter /> */}
