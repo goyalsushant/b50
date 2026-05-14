@@ -14,6 +14,10 @@ import KeyExample from './KeyExample'
 import SubmitForm from './SubmitForm'
 import SingleFormHandler from './GenericFormHandler'
 import SearchBar from './Practice'
+import SearchBarWithEffect from './PreacticeEffect'
+// import ParentComponent from './ClassComponent'
+import ParentComponent from './UnmountComponent'
+import AxiosExample from './AxiosExample'
 
 // function Greeting(props) {
 //   props.name = 'Hello'
@@ -29,7 +33,13 @@ import SearchBar from './Practice'
 function App() {
   return (
     <>
-      <SearchBar />
+      {/* <AxiosExample /> */}
+      <ParentComponent />
+
+      {/* <ParentComponent /> */}
+      {/* <ClassComponent /> */}
+      {/* <SearchBarWithEffect /> */}
+      {/* <SearchBar /> */}
       {/* <SingleFormHandler /> */}
       {/* <SubmitForm /> */}
       {/* <KeyExample /> */}

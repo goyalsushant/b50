@@ -21,8 +21,9 @@ function SingleFormHandler() {
         })
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = (event) => {
+        console.log(event)
+        event.preventDefault()
         console.log(form)
     }
 
