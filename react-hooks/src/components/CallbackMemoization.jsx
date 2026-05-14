@@ -6,9 +6,9 @@ export default function CallbackMemoization() {
 
     const cbRef = useRef()
 
-    const stableCb = () => {
+    const stableCb = useCallback(() => {
         console.log('Created only once')
-    }
+    }, [])
 
     useEffect(() => {
         if(cbRef.current) {
