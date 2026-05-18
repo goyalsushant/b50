@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Profiler, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -8,17 +8,21 @@ import ToDo from './components/Todo'
 import UserSearch from './components/UserSearch'
 import CallbackMemoization from './components/CallbackMemoization'
 import Counter from './components/Counter'
+import Navbar from './components/Navbar'
+import Profile from './components/Profile'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Counter />
+      <Navbar />
+      <Profile />
+      {/* <Counter />
       <Timer />
       <ToDo />
       <UserSearch />
-      <CallbackMemoization />
+      <CallbackMemoization /> */}
       {/* <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
