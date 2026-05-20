@@ -9,6 +9,11 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.dark {
+    background-color: #121212;
+    color: white;
+}
+
 .navbar {
     background-color: #ff5722;
     padding: 15px;
@@ -55,6 +60,10 @@ body {
     padding: 15px;
     border-radius: 10px;
     text-align: center;
+}
+
+.dark .meal-card {
+    background-color: #f1f1f1;
 }
 
 .meal-card img {

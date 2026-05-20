@@ -9,7 +9,6 @@ function MealDetails() {
 
     const [state, dispatch] = useReducer(mealReducer, initialState)
 
-
     useEffect(() => {
         async function fetchMealDetails(): Promise<void> {
 
