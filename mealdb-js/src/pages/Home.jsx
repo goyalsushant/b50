@@ -42,7 +42,7 @@ function Home() {
 
             {state.error && <h2>{state.error}</h2>}
 
-            <div>
+            <div className="grid grid-cols-4 gap-10">
                 {
                     !state.loading &&
                     state.meals.map(meal => (
