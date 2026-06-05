@@ -37,11 +37,8 @@ function Home() {
     return (
         <div>
             <SearchBar search={search} setSearch={setSearch} fetchMeals={fetchMealsData} />
-
             {state.loading && <h2>Loading Meals Data...</h2>}
-
             {state.error && <h2>{state.error}</h2>}
-
             <div className="grid grid-cols-4 gap-10">
                 {
                     !state.loading &&
