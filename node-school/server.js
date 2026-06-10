@@ -1,8 +1,19 @@
 const express = require('express')
 const { sequelize } = require('./models')
+const studentRoutes = require('./routes/studentRoutes')
+const classRoutes = require('./routes/classRoutes')
+const enrollmentRoutes = require('./routes/enrollmentRoutes')
+const subjectRoutes = require('./routes/subjectRoutes')
+const teacherRoutes = require('./routes/teacherRoutes')
 
 const app = express()
 app.use(express.json())
+
+app.use('/classes', classRoutes)
+app.use('/students', studentRoutes)
+app.use('/teachers', teacherRoutes)
+app.use('/enrollments', enrollmentRoutes)
+app.use('/subjects', subjectRoutes)
 
 async function startServer() {
     try {
