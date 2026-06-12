@@ -37,3 +37,34 @@ exports.getStudent = async (req, res) => {
         })
     }
 }
+
+exports.updateStudent = async (req, res) => {
+    try {
+        const student = Student.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true
+        })
+
+        res.status(200).json(student)
+    }
+    catch (err) {
+        res.status(400).json({
+            message: err.message
+        })
+    }
+}
+
+exports.deleteStudent = async (req, res) => {
+    try {
+        const student = Student.findByIdAndDelete(req.params.id,)
+
+        res.status(204).json({
+            message: 'Deletion Successful'
+        })
+    }
+    catch (err) {
+        res.status(400).json({
+            message: err.message
+        })
+    }
+}

@@ -5,6 +5,8 @@ const connectDB = require('./config/db')
 const studentRoutes = require('./routes/studentRoutes')
 const subjectRoutes = require('./routes/subjectRoutes')
 const teacherRoutes = require('./routes/teacherRoutes')
+const classRoutes = require('./routes/classRoutes')
+const enrollmentRoutes = require('./routes/enrollmentRoutes')
 
 connectDB()
 
@@ -15,6 +17,8 @@ app.use(express.json())
 app.use('/api/students', studentRoutes)
 app.use('/api/subjects', subjectRoutes)
 app.use('/api/teachers', teacherRoutes)
+app.use('/api/class', classRoutes)
+app.use('/api/enrollments', enrollmentRoutes)
 
 app.listen(3000, () => {
     console.log('Server Running')
