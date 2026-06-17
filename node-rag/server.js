@@ -2,10 +2,12 @@ const express = require('express')
 const fs = require('fs-extra')
 const path = require('path')
 const axios = require('axios')
+const cors = require('cors')
 require('dotenv').config()
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.post('/generate-embeddings', async (req, res) => {
     const { text } = req.body
@@ -45,7 +47,8 @@ app.post('/ingest-source-data', async (req, res) => {
                 const data = res.data
                 store.push({
                     text: chunk,
-                    embeddings: data.embedding
+                    embeddings: data.embedding,
+                    // file: 'docs.txt'
                 })
             }
             catch (err) {
@@ -85,36 +88,30 @@ function cosine(a, b) {
 
 app.post('/query', async (req, res) => {
     try {
-        const response = await axios.post(`http://localhost:11434/api/embeddings`, {
+        const response = await axios.post(`${process.env.URL}/api/embeddings`, {
             model: 'nomic-embed-text',
             prompt: req.body.prompt
         })
         const data = await response.data
-        const queryEmbedding = data?.embedding[0]
+        const queryEmbedding = data?.embedding
 
         // Retrieval
-        const store = await fs.readJSON('./vectorStorage.json')
-
+        const store = await fs.readJSON('vectorStorage.json').catch(() => [])
         const topKNeighbour = store.map(item => ({
             ...item,
             score: cosine(queryEmbedding, item.embedding)
         }))
             .sort((a, b) => b.score - a.score)
-            .slice(0, 2)
-
+            .filter(item => item.score > 0.5)
+        // .slice(0, 2)
         // Augmentation starts
-        const context = topKNeighbour.map(item => item.text).join('\n')
+        const context = topKNeighbour.map(item => `${item.text}`).join('\n')
 
         const prompt = `
-        You are a support assistant.
-        Answer only using the following context.
-        
         Context: ${context}
-        
         Question: ${req.body.prompt}
-    `
+        `   
         // Augmentation ends
-
         const { data: responseData } = await axios.post(`${process.env.URL}/api/generate`, {
             model: 'llama3.2:1b',
             prompt,
@@ -123,12 +120,56 @@ app.post('/query', async (req, res) => {
 
         res.json({
             answer: responseData,
-            contextUsed: topKNeighbour
+            contextUsed: context
         })
     }
     catch (err) {
         res.status(500).json({
             error: err.message
+        })
+    }
+})
+
+app.post('/ingest-folder', async (req, res) => {
+    try {
+        const dir = './docs'
+        const store = await fs.readJSON('./vectorStorage.json')
+            .catch(() => [])
+
+        const files = await fs.readdir(dir)
+
+        for (const file of files) {
+            const filePath = path.join(dir, file)
+            const content = await fs.readFile(filePath, 'utf-8')
+
+            const chunks = content.split('\n').filter(Boolean)
+
+            for (const chunk of chunks) {
+                const embedding = await axios.post(`${process.env.URL}/api/embeddings`, {
+                    model: 'nomic-embed-text',
+                    prompt: chunk
+                })
+
+                const embedData = embedding.data
+
+                store.push({
+                    text: chunk,
+                    file,
+                    embedding: embedData.embedding
+                })
+            }
+        }
+        await fs.writeJSON('./vectorStorage.json', store, { space: 2 })
+        res.json({
+            message: 'Folder ingested successfully',
+            files: files.length,
+            chunks: store.length
+        })
+    }
+    catch (err) {
+        console.log(err)
+        res.status(500).json({
+            message: err.message
         })
     }
 })
