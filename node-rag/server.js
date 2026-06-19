@@ -3,6 +3,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const axios = require('axios')
 const cors = require('cors')
+const { cosine } = require('./helper/cosine')
 require('dotenv').config()
 
 const app = express()
@@ -72,20 +73,6 @@ app.post('/ingest-source-data', async (req, res) => {
     }
 })
 
-function cosine(a, b) {
-    let dot = 0
-    let magnitudeA = 0
-    let magnitudeB = 0
-
-    for (let i = 0; i < a?.length; i++) {
-        dot += a[i] * b[i]
-        magnitudeA += a[i] * a[i]
-        magnitudeB += b[i] * b[i]
-    }
-
-    return dot / (Math.sqrt(magnitudeA) * Math.sqrt(magnitudeB))
-}
-
 app.post('/query', async (req, res) => {
     try {
         const response = await axios.post(`${process.env.URL}/api/embeddings`, {
@@ -110,7 +97,7 @@ app.post('/query', async (req, res) => {
         const prompt = `
         Context: ${context}
         Question: ${req.body.prompt}
-        `   
+        `
         // Augmentation ends
         const { data: responseData } = await axios.post(`${process.env.URL}/api/generate`, {
             model: 'llama3.2:1b',
@@ -120,7 +107,12 @@ app.post('/query', async (req, res) => {
 
         res.json({
             answer: responseData,
-            contextUsed: context
+            contextUsed: context,
+            sources: topKNeighbour.map(item => ({
+                file: item.file,
+                text: item.text,
+                score: item.score
+            }))
         })
     }
     catch (err) {

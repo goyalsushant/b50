@@ -1,16 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-import {ingestFolder, askQuery} from './api'
+import { useEffect, useState } from 'react'
+import './style.css'
+import { ingestFolder, askQuery } from './api/api'
+import type { ChatMessage, SourceChunk } from './types/types'
+import ChatWindow from './components/ChatWIndow'
+import ChatInput from './components/ChatInput'
 
 function App() {
-  
-  const [question, setQuestion] = useState<string>('')
-  const [answer, setAnswer] = useState<string>('')
+
+  const [messages, setMessages] = useState<ChatMessage[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [ingesting, setIngesting] = useState<boolean>(false)
+
+  useEffect(() => {
+    localStorage.setItem('chat-history', JSON.stringify(messages))
+  }, [messages])
 
   const handleIngest = async () => {
     try {
@@ -18,7 +21,7 @@ function App() {
       const result = await ingestFolder()
       alert('Ingestion of documents complete')
     }
-    catch(err) {
+    catch (err) {
       alert('Failed to ingest documents')
     }
     finally {
@@ -26,19 +29,49 @@ function App() {
     }
   }
 
-  const handleAsk = async () => {
+  const handleAsk = async (question: string) => {
 
-    if(!question.trim()) return
+    const userMessage: ChatMessage = {
+      id: crypto.randomUUID(),
+      role: 'user',
+      content: question,
+      timestamp: new Date().toLocaleTimeString()
+    }
+
+    setMessages(prev => [
+      ...prev,
+      userMessage
+    ])
+
+    if (!question.trim()) return
 
     try {
       setLoading(true)
 
       const result = await askQuery(question)
-      setAnswer(result.answer)
+      const assistantMessage: ChatMessage = {
+        id: crypto.randomUUID(),
+        role: 'assistant',
+        content: result.answer.response,
+        timestamp: new Date().toLocaleTimeString(),
+        sources: result.sources
+      }
 
+      setMessages(prev => [
+        ...prev,
+        assistantMessage
+      ])
     }
-    catch(err) {
-      alert('Failed to query')
+    catch (err) {
+      setMessages(prev => [
+        ...prev,
+        {
+          id: crypto.randomUUID(),
+          role: 'assistant',
+          content: 'Something Went Wrong',
+          timestamp: new Date().toLocaleTimeString(),
+        }
+      ])
     }
     finally {
       setLoading(false)
@@ -46,39 +79,16 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <h1>RAG Assistant</h1>
+    <div className="app">
+      <header>
+        <h1>RAG Assistant</h1>
 
-      <button 
-        className="ingest-btn"
-        disabled = {ingesting}
-        onClick = {handleIngest}
-      >Ingest Documents</button>
+        <button onClick={handleIngest} disabled={ingesting}>{ingesting ? 'Ingesting Documents' : 'Ingest Documents'}</button>
+      </header>
 
-      <div className='chat-box'>
-        <textarea
-          placeholder= 'Type your query here...'
-          value= {question}
-          onChange = {(e) => setQuestion(e.target.value)}
-        />
+      <ChatWindow messages={messages} />
 
-        <button 
-        className="ask-btn"
-        disabled = {loading}
-        onClick = {handleAsk}
-      >Ask Question</button>
-        </div>
-
-        {
-          answer && (
-            <div className='answer-section'>
-              <h2>Answer</h2>
-              <div className='answer-card'>
-                {answer.response}
-                </div>
-              </div>
-          )
-        }
+      <ChatInput loading={loading} onSend={handleAsk} />
     </div>
   )
 }
