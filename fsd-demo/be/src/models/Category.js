@@ -10,8 +10,19 @@ const categorySchema = new mongoose.Schema({
     description: String,
     slug: {
         type: String,
-        unique: true
+        unique: true,
+        lowercase: true
     }
 })
+
+categorySchema.pre("save", function () {
+    if (this.name) {
+        this.slug = this.name
+            .toLowerCase()
+            .trim()
+            .replace(/\s+/g, "-");
+    }
+    // next();
+});
 
 export default mongoose.model('Category', categorySchema)

@@ -13,9 +13,11 @@ export interface Product {
     _id: string
     name: string
     price: number
-    images: {
-        url: string
-    }
+    images: [{
+        url: string,
+        altText: string
+    }]
+    slug: string
 }
 
 export interface ProductState {

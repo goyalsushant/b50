@@ -1,5 +1,5 @@
 import express from 'express'
-import { createProduct, getProduct, getProducts, updateProduct } from '../controllers/productController.js'
+import { createProduct, deleteProduct, getProduct, getProducts, updateProduct } from '../controllers/productController.js'
 import { validateRole } from '../middlewares/roleMiddleware.js'
 import { auth } from '../middlewares/authMiddleware.js'
 import { upload } from '../middlewares/uploadMiddleware.js'
@@ -16,6 +16,6 @@ router.post('/product-image', auth, validateRole('admin'), upload.single('image'
 router.route('/:id')
     .get(getProduct)
     .put(auth, validateRole('admin'), updateProduct)
-    .delete(auth, validateRole('admin'))
+    .delete(auth, validateRole('admin'), deleteProduct)
 
 export default router

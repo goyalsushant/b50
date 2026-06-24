@@ -7,7 +7,7 @@ const initialState: ProductState = {
     loading: false
 }
 
-export const fetchProdcuts = createAsyncThunk('/products/fetch', async (query: string) => {
+export const fetchProducts = createAsyncThunk('/products/fetch', async (query: string) => {
     const res = await api.get(`/products?${query}`)
     return res.data.products
 })
@@ -18,10 +18,10 @@ const productSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchProdcuts.pending, (state) => {
+            .addCase(fetchProducts.pending, (state) => {
                 state.loading = true
             })
-            .addCase(fetchProdcuts.fulfilled, (state, action) => {
+            .addCase(fetchProducts.fulfilled, (state, action) => {
                 state.products = action.payload
                 state.loading = false
             })

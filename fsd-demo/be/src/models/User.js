@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
 const userSchema = new mongoose.Schema(
@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
             minLength: 8,
+            select: false
         },
         phone: {
             type: String,

@@ -10,6 +10,7 @@ export const getProducts = async (req, res) => {
 
     const products = await features.query
 
+    // to do count
     res.json({
         total: products.length,
         products
@@ -26,20 +27,22 @@ export const createProduct = async (req, res) => {
 
     const product = await Product.create({
         ...req.body,
-        images: [{ url: imageUrl }]
+        images: imageUrl ? [{ url: imageUrl }] : []
     })
 
     res.status(201).json(product)
 }
 
 export const getProduct = async (req, res) => {
-    const product = await Product.findById(req.params.id)
+    const product = await Product.find({ slug: req.params.id })
 
     if (!product) {
         return res.status(404).json({
             message: 'Product Not Found'
         })
     }
+
+    res.json(product)
 }
 
 export const updateProduct = async (req, res) => {

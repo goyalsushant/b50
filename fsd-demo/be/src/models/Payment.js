@@ -4,11 +4,13 @@ const paymentSchema = mongoose.Schema(
     {
         order: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Order'
+            ref: 'Order',
+            required: true
         },
         amount: {
             type: Number,
-            required: true
+            required: true,
+            min: 0.01
         },
         status: {
             type: String,

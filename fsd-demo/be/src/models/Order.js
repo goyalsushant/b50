@@ -11,10 +11,18 @@ const orderSchema = mongoose.Schema(
             {
                 product: {
                     type: mongoose.Schema.Types.ObjectId,
-                    ref: 'Product'
+                    ref: 'Product',
+                    required: true
                 },
-                name: String,
-                quantity: Number,
+                name: {
+                    type: String,
+                    required: true
+                },
+                quantity: {
+                    type: Number,
+                    min: 1,
+                    required: true
+                },
                 price: Number
             }
         ],
