@@ -7,22 +7,40 @@ import Cart from './pages/Cart'
 import Orders from './pages/Orders'
 import Checkout from './pages/Checkout'
 import MainLayout from './layouts/MainLayout'
+import AdminLayout from './admin/layout/AdminLayout'
+import Dashboard from './admin/pages/Dashboard'
+import Products from './admin/pages/Product'
+import AdminOrders from './admin/pages/AdminOrders'
+import Users from './admin/pages/Users'
+import AdminRoute from './admin/components/AdminRoute'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <MainLayout>
-          <Routes>
+        <Navbar />
+        <Routes>
+          <Route element={<MainLayout />}>
             <Route path='/' element={<Home />} />
             <Route path='/product/:slug' element={<ProductDetails />} />
             <Route path='/login' element={<Login />} />
             <Route path='/cart' element={<Cart />} />
             <Route path='/orders' element={<Orders />} />
             <Route path='/checkout' element={<Checkout />} />
-          </Routes>
-        </MainLayout>
-      </BrowserRouter>
+          </Route>
+          <Route path="/admin" element={
+            <AdminRoute>
+              <AdminLayout />
+            </AdminRoute>
+          }>
+            <Route index element={<Dashboard />} />
+            <Route path="products" element={<Products />} />
+            <Route path="orders" element={<AdminOrders />} />
+            <Route path='users' element={<Users />} />
+          </Route>
+        </Routes>
+      </BrowserRouter >
     </>
   )
 }

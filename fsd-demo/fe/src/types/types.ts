@@ -2,6 +2,7 @@ export interface User {
     _id: string
     email: string
     name: string
+    role: string
 }
 
 export interface AuthState {
@@ -18,6 +19,7 @@ export interface Product {
         altText: string
     }]
     slug: string
+    stock: number
 }
 
 export interface ProductState {

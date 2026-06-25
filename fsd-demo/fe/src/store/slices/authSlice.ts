@@ -10,6 +10,7 @@ const initialState: AuthState = {
 export const loginUser = createAsyncThunk('/auth/login', async (data: { email: string, password: string }) => {
     const res = await api.post('/auth/login', data)
     localStorage.setItem('token', res.data.token)
+    console.log('user', res.data)
     return res.data
 })
 

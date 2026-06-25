@@ -30,7 +30,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
     const { email, password } = req.body
 
-    const user = await User.findOne({ email }).select({ password: 1, role: 1 })
+    const user = await User.findOne({ email }).select({ password: 1, role: 1, name:1 })
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(401).json({
@@ -40,6 +40,9 @@ export const login = async (req, res) => {
 
     res.json({
         _id: user._id,
+        role: user.role,
+        name: user.name,
+        email,
         token: generateToken(user._id, user.role)
     })
 }

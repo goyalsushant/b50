@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+* {
+  box-sizing: border-box;
+}
+
 .input {
   @apply border p-2 rounded w-full;
 }
